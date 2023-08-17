@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejsweb
+  labels:
+    name: nodejsweb
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodejsweb
+  template:
+    metadata:
+      labels:
+        app: nodejsweb
+    spec:
+      containers:
+      - name: nodejsweb
+        image: kusumaningrat16/nodejsweb:v2.1
+        ports:
+        - containerPort: 3000
