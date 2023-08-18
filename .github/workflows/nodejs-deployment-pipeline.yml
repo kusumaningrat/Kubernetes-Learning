@@ -46,6 +46,7 @@ jobs:
            run: |
             export SHELL=/bin/bash
             eval $(minikube -p minikube docker-env)
+            pwd
             docker build -f ../../images/nodejs/Dockerfile -t kusumaningrat16/nodejsweb:v3 .
             echo -n "verifying images:"
             docker images   
