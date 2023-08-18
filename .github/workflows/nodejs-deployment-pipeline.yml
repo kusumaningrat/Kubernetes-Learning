@@ -24,7 +24,7 @@ jobs:
             export SHELL=/bin/bash
             eval $(minikube -p minikube docker-env)
             pwd
-            docker build -f ../../images/nodejs/Dockerfile -t kusumaningrat16/nodejsweb:v3 .
+            docker build -f ./images/nodejs/Dockerfile -t kusumaningrat16/nodejsweb:v3 .
             echo -n "verifying images:"
             docker images   
 
@@ -34,6 +34,6 @@ jobs:
          - name: Test service URLs
            run: |
              minikube service list
-             minikube service example --url
+             minikube service nodejsweb-service --url
              echo "------------------opening the service------------------"
-             curl $(minikube service example --url)   
+             curl $(minikube service nodejsweb-service --url)   
